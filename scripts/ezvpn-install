@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Update software repositories.
+apt-get update
+
+# curl is used to retrieve server's external IP.
+apt-get install --yes curl
+
+# iptables is used to configure netfilter
+apt-get install --yes iptables
+
+# Install the OpenVPN server.
+apt-get install --yes openvpn
+
+# Configure openvpn startup options.
+echo "AUTOSTART=\"udp1194\"" >> /etc/default/openvpn

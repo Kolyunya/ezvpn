@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Configure easy rsa
+source /usr/share/easy-rsa/vars
+export EASY_RSA="/usr/share/easy-rsa"
+export KEY_CONFIG="$($EASY_RSA/whichopensslcnf $EASY_RSA)"
+export KEY_DIR="/etc/openvpn/cert"
+
+# Generate cetficates and keys
+/usr/share/easy-rsa/clean-all
+/usr/share/easy-rsa/pkitool --initca
+/usr/share/easy-rsa/pkitool --server server
+openssl dhparam -out /etc/openvpn/cert/dh2048.pem 2048

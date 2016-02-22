@@ -1,0 +1,25 @@
+#!/bin/bash
+IP=$(curl -s http://myip.enix.org/REMOTE_ADDR)
+CERT=$(cat /etc/openvpn/cert/ca.crt)
+cat << EOF
+client
+dev tun
+persist-key
+persist-tun
+keepalive 10 60
+redirect-gateway def1
+dhcp-option DNS $IP
+dhcp-option DNS 8.8.8.8
+dhcp-option DNS 8.8.4.4
+auth-user-pass
+ns-cert-type server
+script-security 2
+<connection>
+remote $IP 1194 udp
+</connection>
+<ca>
+$CERT
+</ca>
+up /etc/openvpn/update-resolv-conf
+down /etc/openvpn/update-resolv-conf
+EOF

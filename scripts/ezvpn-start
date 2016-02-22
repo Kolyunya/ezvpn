@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Configure networking parameters.
+sysctl net.ipv4.ip_forward=1
+RULE="POSTROUTING -t nat -s 10.8.1.0/24 -o eth0 -j MASQUERADE"
+if ! iptables -C ${RULE};
+then
+    iptables -A ${RULE}
+fi
+
+# Initialize certification authority.
+ezvpn-ca-initialize
+
+# Start the Open VPN server.
+service openvpn start
+
+# Keep the container running.
+bash
