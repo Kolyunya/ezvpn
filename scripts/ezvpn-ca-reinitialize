@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Delete current CA
+rm /etc/openvpn/cert/*
+
+# Initialize new CA
+ezvpn-ca-initialize

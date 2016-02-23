@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Check if CA is already initialized
+if [ -n "$(ls -A /etc/openvpn/cert)" ];
+then
+    exit 0
+fi
+
 # Configure easy rsa
 source /usr/share/easy-rsa/vars
 export EASY_RSA="/usr/share/easy-rsa"
