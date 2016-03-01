@@ -1,4 +1,4 @@
-# EZVPN - Easy VPN
+# Easy VPN server
 
 ## Description
 A docker [container](https://hub.docker.com/r/kolyunya/ezvpn/) with an easy to install and use virtual private network server based on [OpenVPN](https://openvpn.net/) with login-password authentication method incorporated. 
