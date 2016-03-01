@@ -13,6 +13,3 @@ ezvpn-ca-initialize
 
 # Start the Open VPN server.
 service openvpn start
-
-# Keep the container running.
-bash

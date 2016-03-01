@@ -8,4 +8,4 @@ COPY configs/cert /etc/openvpn/cert
 COPY configs/pswd /etc/openvpn/pswd
 COPY configs/temp /etc/openvpn/temp
 RUN ezvpn-install
-ENTRYPOINT ezvpn-start
+ENTRYPOINT ezvpn-start && sh
