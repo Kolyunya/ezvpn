@@ -4,16 +4,14 @@
 A docker [container](https://hub.docker.com/r/kolyunya/ezvpn/) with an easy to install and use virtual private network server based on [OpenVPN](https://openvpn.net/) with login-password authentication method incorporated. 
 
 ## Installation
-1. Start the container:
+Just start the container and you are good to go. No configuration is required.
+
 `docker run --privileged --detach --tty --net=host --restart=always --name=ezvpn kolyunya/ezvpn`
 
-2. Create user account
-`docker exec ezvpn ezvpn-user-add login password`
+## User accounts management
+All users share the same client configuration retrieved from the server. No client certificates are required. You can manage user accounts using the following commands.
+* `ezvpn-user-add login password` - create a user with the corresponding login and password.
+* `ezvpn-user-remove login` - delete user with the corresponding login.
 
-3. Get client config:
-`docker exec ezvpn ezvpn-config-get`
-
-4. Give the server a couple of minutes to generate Diffie-Hellman key.
-
-## Usage
-All users share the same config retrieved from the server. No client certificates are required.
+## Client configuration getting
+ You can get client configuration using the following command `ezvpn-config-get`.
