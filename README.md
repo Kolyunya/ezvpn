@@ -14,4 +14,4 @@ All users share the same client configuration retrieved from the server. No clie
 * `docker exec ezvpn ezvpn-user-remove login` - delete user with the corresponding login.
 
 ## Client configuration getting
- You can get client configuration using the following command `ezvpn-config-get`.
+ You can get client configuration using the following command `docker exec ezvpn ezvpn-config-get`.
