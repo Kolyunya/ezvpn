@@ -10,8 +10,8 @@ Just start the container and you are good to go. No configuration is required.
 
 ## User accounts management
 All users share the same client configuration retrieved from the server. No client certificates are required. You can manage user accounts using the following commands.
-* `ezvpn-user-add login password` - create a user with the corresponding login and password.
-* `ezvpn-user-remove login` - delete user with the corresponding login.
+* `docker exec ezvpn ezvpn-user-add login password` - create a user with the corresponding login and password.
+* `docker exec ezvpn ezvpn-user-remove login` - delete user with the corresponding login.
 
 ## Client configuration getting
  You can get client configuration using the following command `ezvpn-config-get`.
